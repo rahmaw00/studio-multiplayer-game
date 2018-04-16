@@ -30,6 +30,14 @@ const gameData = {
     maxUsers: 2,
     component: RockPaperScissors,
   },
+  
+  photosharing: {
+    title: "Untitled Photo-sharing App",
+    authors: "Ramata Williams, Andrea Cajamarca",
+    description: "Ripping off Twitter, Instagram, AND Tumblr.",
+    minUsers: 2,
+    maxUserss: 5,
+  }
 
 
 }

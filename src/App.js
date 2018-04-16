@@ -10,6 +10,10 @@ import firebaseConfig from './firebaseConfig.js';
 import gameData from './gameData.js';
 import { Route } from 'react-router-dom';
 import { UserApiConfig } from './UserApi.js';
+import Snackbar from 'material-ui/Snackbar';
+import Popover from 'material-ui/Popover';
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
 
 const buttonStyle = {
   width: 56,
@@ -23,7 +27,8 @@ export default class App extends Component {
     this.state = {
       authIsLoading: true,
       userApiIsLoading: true,
-      user: null
+      user: null,
+      open: true
     };
   }
 
@@ -74,11 +79,30 @@ export default class App extends Component {
     if (!this.state.authIsLoading && this.state.user === null) {
       return (
         <center>
+          <Snackbar
+          open={this.state.open}
+          message="Event added to your calendar"
+          autoHideDuration={4000}
+          onRequestClose={this.handleRequestClose}/>
           <FloatingActionButton
               style={buttonStyle}
               onClick={() => this.signIn()}>
             <PersonAdd />
           </FloatingActionButton>
+          <Popover
+          open={this.state.open}
+          anchorEl={this.state.anchorEl}
+          anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+          targetOrigin={{horizontal: 'left', vertical: 'top'}}
+          onRequestClose={this.handleRequestClose}
+        >
+          <Menu>
+            <MenuItem primaryText="Refresh" />
+            <MenuItem primaryText="Help &amp; feedback" />
+            <MenuItem primaryText="Settings" />
+            <MenuItem primaryText="Sign out" />
+          </Menu>
+        </Popover>
         </center>
       );
     } else if (this.state.authIsLoading || this.state.userApiIsLoading) {
