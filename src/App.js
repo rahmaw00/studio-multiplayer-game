@@ -27,8 +27,7 @@ export default class App extends Component {
     this.state = {
       authIsLoading: true,
       userApiIsLoading: true,
-      user: null,
-      open: true
+      user: null
     };
   }
 
@@ -79,30 +78,11 @@ export default class App extends Component {
     if (!this.state.authIsLoading && this.state.user === null) {
       return (
         <center>
-          <Snackbar
-          open={this.state.open}
-          message="Event added to your calendar"
-          autoHideDuration={4000}
-          onRequestClose={this.handleRequestClose}/>
           <FloatingActionButton
               style={buttonStyle}
               onClick={() => this.signIn()}>
             <PersonAdd />
           </FloatingActionButton>
-          <Popover
-          open={this.state.open}
-          anchorEl={this.state.anchorEl}
-          anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
-          targetOrigin={{horizontal: 'left', vertical: 'top'}}
-          onRequestClose={this.handleRequestClose}
-        >
-          <Menu>
-            <MenuItem primaryText="Refresh" />
-            <MenuItem primaryText="Help &amp; feedback" />
-            <MenuItem primaryText="Settings" />
-            <MenuItem primaryText="Sign out" />
-          </Menu>
-        </Popover>
         </center>
       );
     } else if (this.state.authIsLoading || this.state.userApiIsLoading) {

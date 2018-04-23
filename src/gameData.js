@@ -1,6 +1,7 @@
 import ChatRoom from './ChatRoom.js';
 import TicTacToe from './TicTacToe.js';
 import RockPaperScissors from './RockPaperScissors.js';
+import Spark from './Spark.js';
 
 const gameData = {
 
@@ -37,6 +38,7 @@ const gameData = {
     description: "Ripping off Twitter, Instagram, AND Tumblr.",
     minUsers: 2,
     maxUserss: 5,
+    component: Spark,
   }
 
 
