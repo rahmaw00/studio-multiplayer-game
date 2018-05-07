@@ -48,6 +48,13 @@ export default class Spark extends Component {
       input: "",
     })
   }
+  
+  handleCancel() {
+    this.setState({
+      open: false,
+      input: "",
+    })
+  }
 
   handleChange(event, newValue) {
     this.setState({
@@ -92,9 +99,13 @@ export default class Spark extends Component {
       <FlatButton
         label="POST"
         primary={true}
-        keyboardFocused={true}
         onClick={() => this.handleClose()}
       />,
+      <FlatButton
+        label="CANCEL"
+        secondary={true}
+        onClick={() => this.handleClose()}
+      />
     ];
 
     return (
