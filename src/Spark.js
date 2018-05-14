@@ -27,7 +27,8 @@ export default class Spark extends Component {
 
     this.state = {
       posts: [],
-      input: "",
+      urlInput: "",
+      userInput: "",
       open: false,
     };
   }
@@ -39,9 +40,9 @@ export default class Spark extends Component {
   
   handleClose() {
     this.sessionRef.push({
-      user: "RW",
-      name:"Ramata",
-      image: this.state.input,
+      user: this.state.userInput,
+      name: "",
+      image: this.state.urlInput,
     })
     this.setState({
       open: false,
@@ -56,9 +57,15 @@ export default class Spark extends Component {
     })
   }
 
-  handleChange(event, newValue) {
+  handleUserChange(event, newValue) {
     this.setState({
-      input: newValue,
+      userInput: newValue,
+    })
+  }
+  
+    handleUrlChange(event, newValue) {
+    this.setState({
+      urlInput: newValue,
     })
   }
 
@@ -104,7 +111,7 @@ export default class Spark extends Component {
       <FlatButton
         label="CANCEL"
         secondary={true}
-        onClick={() => this.handleClose()}
+        onClick={() => this.handleCancel()}
       />
     ];
 
@@ -116,16 +123,19 @@ export default class Spark extends Component {
           modal={false}
           open={this.state.open}
         >
-        <TextField onChange={(event, newValue) => this.handleChange(event, newValue)}
-              hintText="Paste your url"
-              floatingLabelText="Photo url" />        
+        <TextField onChange={(event, newValue) => this.handleUrlChange(event, newValue)}
+              hintText="Paste your url "
+              floatingLabelText="Photo url " />        
+        <TextField onChange={(event, newValue) => this.handleUserChange(event, newValue)}
+              hintText="Enter your username"
+              floatingLabelText="Username" />
       </Dialog>
         <GridList
           cellHeight={"auto"}
         >
           {this.state.posts.map((tile) => (
             <GridTile
-              title={tile.name}>            
+              title={tile.name, tile.user}>
               <img src={tile.image} />
             </GridTile>
           ))}

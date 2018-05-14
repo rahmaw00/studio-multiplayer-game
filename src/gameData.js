@@ -33,8 +33,8 @@ const gameData = {
   },
   
   photosharing: {
-    title: "Untitled Photo-sharing App",
-    authors: "Ramata Williams, Andrea Cajamarca",
+    title: "Spark",
+    authors: "Ramata Williams and Andrea Cajamarca",
     description: "Ripping off Twitter, Instagram, AND Tumblr.",
     minUsers: 2,
     maxUserss: 5,
