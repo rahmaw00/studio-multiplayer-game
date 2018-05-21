@@ -9,7 +9,25 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 
+import Subheader from 'material-ui/Subheader';
+import Divider from 'material-ui/Divider';
+import CommunicationChatBubble from 'material-ui/svg-icons/communication/chat-bubble';
+
+
+const styles = {
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  gridList: {
+    width: 500,
+    height: 450,
+    overflowY: 'auto',
+  },
+};
 
 const ButtonStyle = {
   position: "fixed",
@@ -132,7 +150,8 @@ export default class Spark extends Component {
       </Dialog>
         <GridList
           cellHeight={"auto"}
-        >
+          style={styles.gridList}
+      >
           {this.state.posts.map((tile) => (
             <GridTile
               title={tile.name, tile.user}>
@@ -140,6 +159,39 @@ export default class Spark extends Component {
             </GridTile>
           ))}
         </GridList>
+        <div class= "blurb">
+        <h1>Spark</h1>
+        <p>Spark is a modern photo-sharing app aimed at connecting
+          you with the things you cherish and care about---in 
+          our case, it was cats. It is a combination of our favorite
+          social media apps: the roasting of black Twitter,
+          the stalking of Instagram for “reliable” ads,
+          and organizing a life you’ll never have on Pinterest.
+          It consists of a platform to share photos,
+          and a bar that always tells you who of the people
+          you follow is currently online.
+          It is an innovative app that allows you to---
+       </p>
+       <p> M’baku: Are you done?
+       </p>
+        </div>
+        
+        <div class= "list">
+          <List>
+            <Subheader>Currently online are...</Subheader>
+            <ListItem
+              primaryText="Ramata Williams Bah"
+              leftAvatar={<Avatar src="https://i.pinimg.com/236x/12/e4/36/12e436feb149808f974bfdb9a61c4eef--amazing-sketches-instagram-fashion.jpg" />}
+              rightIcon={<CommunicationChatBubble />}
+            />
+            <ListItem
+              primaryText="Andrea Cajamarca"
+              leftAvatar={<Avatar src="https://www.toonpool.com/user/4550/files/salma_hayek_721035.jpg" />}
+              rightIcon={<CommunicationChatBubble />}
+            />
+          </List>
+       </div>
+
         <FloatingActionButton secondary={true} style={ButtonStyle} onClick={() => this.handleOpen()}>
           <ContentAdd />
         </FloatingActionButton>

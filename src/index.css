@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: pink;
+  background-color: #ffcccc;
 }
 
 img{
@@ -19,4 +19,18 @@ img{
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.list {
+  position: relative;
+  float: right;
+  left: 550px;
+}
+
+.blurb {
+  position: relative;
+  width: 700px;
+  bottom: 450px;
+  border-style: dashed;
+  float: right;
 }
